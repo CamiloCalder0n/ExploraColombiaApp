@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1066430351738",
+    "project_id": "fir-f9c1e",
+    "storage_bucket": "fir-f9c1e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1066430351738:android:61ee60e458f5877b602ec3",
+        "android_client_info": {
+          "package_name": "me.camilo.exploracolombiaapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZIfRiVxHsKdO7YZr7G8CTirhBO9hskYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
