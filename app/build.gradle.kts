@@ -62,4 +62,6 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     //Auth
     implementation(libs.firebase.auth)
+    //Viewmodel
+    implementation("androidx.lifecycle:lyfecyle-viewmodel-compose:2.10.0")
 }
