@@ -1,6 +1,7 @@
-package me.camilo.exploracolombiaapp
+package me.camilo.exploracolombiaapp.ui.elements
 
 import android.app.Activity
+import android.util.Patterns
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -22,12 +23,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -231,7 +234,7 @@ fun RegisterScreen(
                             registerError = "Ingresa tu correo electrónico"
                             return@Button
                         }
-                        !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
+                        !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
                             registerError = "El formato del correo no es válido"
                             return@Button
                         }
@@ -340,8 +343,16 @@ fun RegisterScreen(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                SocialButton(text = "Google", modifier = Modifier.weight(1f), icon = Icons.Default.Email)
-                SocialButton(text = "Apple", modifier = Modifier.weight(1f), icon = Icons.Default.Lock)
+                SocialButton(
+                    text = "Google",
+                    modifier = Modifier.weight(1f),
+                    icon = Icons.Default.Email
+                )
+                SocialButton(
+                    text = "Apple",
+                    modifier = Modifier.weight(1f),
+                    icon = Icons.Default.Lock
+                )
             }
 
             Spacer(modifier = Modifier.height(40.dp))
@@ -366,7 +377,7 @@ fun RegisterField(
     value: String,
     onValueChange: (String) -> Unit,
     placeholder: String,
-    leadingIcon: androidx.compose.ui.graphics.vector.ImageVector,
+    leadingIcon: ImageVector,
     inputBg: Color,
     modifier: Modifier = Modifier,
     isPassword: Boolean = false,
@@ -383,7 +394,7 @@ fun RegisterField(
             placeholder = { Text(placeholder, color = Color.Gray) },
             leadingIcon = { Icon(leadingIcon, contentDescription = null, tint = Color.Gray) },
             visualTransformation = if (isPassword) PasswordVisualTransformation()
-            else androidx.compose.ui.text.input.VisualTransformation.None,
+            else VisualTransformation.None,
             keyboardOptions = KeyboardOptions(
                 keyboardType = if (isPassword) KeyboardType.Password else keyboardType
             ),

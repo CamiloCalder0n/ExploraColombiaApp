@@ -6,13 +6,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
+import me.camilo.exploracolombiaapp.ui.elements.AddPlaceScreen
+import me.camilo.exploracolombiaapp.ui.elements.HomeScreen
+import me.camilo.exploracolombiaapp.ui.elements.LoginScreen
+import me.camilo.exploracolombiaapp.ui.elements.RegisterScreen
 
 @Composable
 fun NavigationApp() {
     val myNavController = rememberNavController()
-
-    // ── Mantener sesión activa ──
-    // Si Firebase ya tiene un usuario autenticado, arranca directo en "home"
     val startDestination = if (Firebase.auth.currentUser != null) "home" else "login"
 
     NavHost(
@@ -50,13 +51,13 @@ fun NavigationApp() {
         }
 
         composable("home") {
-            HomeScreen(
-                onLogout = {
-                    myNavController.navigate("login") {
-                        popUpTo("home") { inclusive = true }
-                    }
-                }
-            )
+            HomeScreen(onClickAddPlace = {
+                myNavController.navigate("addPlace")
+            })
+        }
+
+        composable("addPlace") {
+            AddPlaceScreen()
         }
     }
 }

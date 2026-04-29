@@ -1,6 +1,7 @@
-package me.camilo.exploracolombiaapp
+package me.camilo.exploracolombiaapp.ui.elements
 
 import android.app.Activity
+import android.util.Patterns
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -21,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -204,7 +206,7 @@ fun LoginScreen(
                                 loginError = "Ingresa tu correo electrónico"
                                 return@Button
                             }
-                            !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
+                            !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
                                 loginError = "El formato del correo no es válido"
                                 return@Button
                             }
@@ -320,7 +322,7 @@ fun LoginScreen(
 fun SocialButton(
     text: String,
     modifier: Modifier = Modifier,
-    icon: androidx.compose.ui.graphics.vector.ImageVector
+    icon: ImageVector
 ) {
     OutlinedButton(
         onClick = { },
