@@ -59,5 +59,8 @@ fun NavigationApp() {
         composable("addPlace") {
             AddPlaceScreen()
         }
+        composable("addPlace") {
+            AddPlaceScreen(onBackClick = { myNavController.popBackStack() })
+        }
     }
 }
